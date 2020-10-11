@@ -1,0 +1,169 @@
+input CreateEmployeeInput {
+	id: ID
+	firstname: String!
+	lastname: String!
+	skills: [SkillInput]
+}
+
+# input DeleteEmployeeInput {
+# 	id: ID
+# }
+
+type Employee {
+	id: ID!
+	firstname: String!
+	lastname: String!
+	skills: [Skill]
+	# createdAt: AWSDateTime!
+	# updatedAt: AWSDateTime!
+}
+
+# # enum ModelAttributeTypes {
+# # 	binary
+# # 	binarySet
+# # 	bool
+# # 	list
+# # 	map
+# # 	number
+# # 	numberSet
+# # 	string
+# # 	stringSet
+# # 	_null
+# # }
+
+# # input ModelBooleanInput {
+# # 	ne: Boolean
+# # 	eq: Boolean
+# # 	attributeExists: Boolean
+# # 	attributeType: ModelAttributeTypes
+# # }
+
+# # input ModelEmployeeConditionInput {
+# # 	firstname: ModelStringInput
+# # 	lastname: ModelStringInput
+# # 	and: [ModelEmployeeConditionInput]
+# # 	or: [ModelEmployeeConditionInput]
+# # 	not: ModelEmployeeConditionInput
+# # }
+
+# # type ModelEmployeeConnection {
+# # 	items: [Employee]
+# # 	nextToken: String
+# # }
+
+# # input ModelEmployeeFilterInput {
+# # 	id: ModelIDInput
+# # 	firstname: ModelStringInput
+# # 	lastname: ModelStringInput
+# # 	and: [ModelEmployeeFilterInput]
+# # 	or: [ModelEmployeeFilterInput]
+# # 	not: ModelEmployeeFilterInput
+# # }
+
+# # input ModelFloatInput {
+# # 	ne: Float
+# # 	eq: Float
+# # 	le: Float
+# # 	lt: Float
+# # 	ge: Float
+# # 	gt: Float
+# # 	between: [Float]
+# # 	attributeExists: Boolean
+# # 	attributeType: ModelAttributeTypes
+# # }
+
+# # input ModelIDInput {
+# # 	ne: ID
+# # 	eq: ID
+# # 	le: ID
+# # 	lt: ID
+# # 	ge: ID
+# # 	gt: ID
+# # 	contains: ID
+# # 	notContains: ID
+# # 	between: [ID]
+# # 	beginsWith: ID
+# # 	attributeExists: Boolean
+# # 	attributeType: ModelAttributeTypes
+# # 	size: ModelSizeInput
+# # }
+
+# # input ModelIntInput {
+# # 	ne: Int
+# # 	eq: Int
+# # 	le: Int
+# # 	lt: Int
+# # 	ge: Int
+# # 	gt: Int
+# # 	between: [Int]
+# # 	attributeExists: Boolean
+# # 	attributeType: ModelAttributeTypes
+# # }
+
+# # input ModelSizeInput {
+# # 	ne: Int
+# # 	eq: Int
+# # 	le: Int
+# # 	lt: Int
+# # 	ge: Int
+# # 	gt: Int
+# # 	between: [Int]
+# # }
+
+# # enum ModelSortDirection {
+# # 	ASC
+# # 	DESC
+# # }
+
+# # input ModelStringInput {
+# # 	ne: String
+# # 	eq: String
+# # 	le: String
+# # 	lt: String
+# # 	ge: String
+# # 	gt: String
+# # 	contains: String
+# # 	notContains: String
+# # 	between: [String]
+# # 	beginsWith: String
+# # 	attributeExists: Boolean
+# # 	attributeType: ModelAttributeTypes
+# # 	size: ModelSizeInput
+# # }
+
+# type Mutation {
+# 	createEmployee(input: CreateEmployeeInput!, condition: ModelEmployeeConditionInput): Employee
+# 	updateEmployee(input: UpdateEmployeeInput!, condition: ModelEmployeeConditionInput): Employee
+# 	deleteEmployee(input: DeleteEmployeeInput!, condition: ModelEmployeeConditionInput): Employee
+# }
+
+type Query {
+	getEmployee(id: ID!): Employee
+	# listEmployees(filter: ModelEmployeeFilterInput, limit: Int, nextToken: String): ModelEmployeeConnection
+}
+
+type Skill {
+	id: ID!
+	name: String!
+}
+
+input SkillInput {
+	id: ID!
+	name: String!
+}
+
+# # type Subscription {
+# # 	onCreateEmployee: Employee
+# # 		@aws_subscribe(mutations: ["createEmployee"])
+# # 	onUpdateEmployee: Employee
+# # 		@aws_subscribe(mutations: ["updateEmployee"])
+# # 	onDeleteEmployee: Employee
+# # 		@aws_subscribe(mutations: ["deleteEmployee"])
+# # }
+
+# input UpdateEmployeeInput {
+# 	id: ID!
+# 	firstname: String
+# 	lastname: String
+# 	skills: [SkillInput]
+# }
