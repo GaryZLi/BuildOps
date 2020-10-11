@@ -162,6 +162,7 @@ const SkillListMenu = ({
         <div className={classes.root}>
             <div className={classes.textListContainer}>
                 <TextField
+                    placeholder='Type Skill Here'
                     className={classes.textField} 
                     value={skill} 
                     onChange={e => setSkill(e.target.value)} 

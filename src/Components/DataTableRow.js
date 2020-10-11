@@ -154,10 +154,12 @@ const DataTableRow = ({
                             )
                             :
                             <input
+                                placeholder={column.label}
                                 className={classes.input}
                                 value={value}
                                 onChange={e => handleChange(e.target.value, id, column.id)}
                             />
+                            
                         }
                     </TableCell>
                 );
