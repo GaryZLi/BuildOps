@@ -1,3 +1,11 @@
+### INSTALLATION
+
+```sh
+yarn install
+```
+
+This installs all the necessary dependencies.
+
 ### START
 
 ```sh
@@ -33,7 +41,7 @@ Your app is ready to be deployed!
 
 See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### Deployment
+### DEPLOYMENT
 
 Configure AWS credentials
 
