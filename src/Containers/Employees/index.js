@@ -9,8 +9,8 @@ import { listEmployees } from '../../graphql/queries';
 import { updateEmployees } from '../../actions';
 
 const columns = [
-    { id: 'firstname', label: 'First Name', minWidth: 170, sortable: true },
-    { id: 'lastname', label: 'Last Name', minWidth: 100, sortable: true },
+    { id: 'firstname', label: 'First Name', minWidth: 170 },
+    { id: 'lastname', label: 'Last Name', minWidth: 100 },
     {
         id: 'skills',
         label: 'Skills',

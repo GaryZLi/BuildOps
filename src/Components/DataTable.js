@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
 import Table from '@material-ui/core/Table';
@@ -9,8 +9,6 @@ import TableContainer from '@material-ui/core/TableContainer';
 import TableHead from '@material-ui/core/TableHead';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
-import ExpandLess from '@material-ui/icons/ExpandLess';
-import ExpandMore from '@material-ui/icons/ExpandMore';
 
 import DataTableRow from './DataTableRow';
 
@@ -33,42 +31,6 @@ const DataTable = ({
     rows,
 }) => {
     const classes = useStyles();
-    const [sortType, setSortType] = useState({
-        name: 'firstname',
-        ascending: true,
-    });
-
-    // comparator for sorting depending on ascending/descending and the column
-    const comparator = (a, b) => {
-        if (sortType.name === 'firstname') {
-            if (sortType.ascending) {
-                return a.firstname.toLowerCase() < b.firstname.toLowerCase() ? -1 : 1;
-            }
-
-            return a.firstname < b.firstname ? 1 : -1;
-        }
-        else if (sortType.name === 'lastname') {
-            if (sortType.ascending) {
-                return a.lastname.toLowerCase() < b.lastname.toLowerCase() ? -1 : 1;
-            }
-
-            return a.lastname.toLowerCase() < b.lastname.toLowerCase() ? 1 : -1;
-        }
-        else {
-            if (sortType.ascending) {
-                return a.skills.length < b.skills.length ? -1 : 1;
-            }
-
-            return a.skills.length < b.skills.length ? 1 : -1;
-        }
-    };
-
-    const handleClick = name => {
-        setSortType(prev => ({
-            name,
-            ascending: !prev.ascending
-        }));
-    };
 
     return (
         <Paper
@@ -91,23 +53,7 @@ const DataTable = ({
                                     align={column.align}
                                     style={{ minWidth: column.minWidth }}
                                 >
-                                    <div style={{ display: 'flex' }}>
-                                        {column.label}
-                                        {sortType.name === column.id && sortType.ascending
-                                            ? (
-                                                <ExpandLess
-                                                    className={classes.expandButton}
-                                                    onClick={() => handleClick(column.id)}
-                                                />
-                                            )
-                                            : (
-                                                <ExpandMore
-                                                    className={classes.expandButton}
-                                                    onClick={() => handleClick(column.id)}
-                                                />
-                                            )
-                                        }
-                                    </div>
+                                    {column.label}
                                 </TableCell>
                             ))}
                             <TableCell />
@@ -116,8 +62,6 @@ const DataTable = ({
                     <TableBody >
                         {/* Maps all of our rows without having us to manually type each out */}
                         {rows
-                            .slice()
-                            .sort(comparator)
                             .map((row, id) => {
                                 return (
                                     <DataTableRow
