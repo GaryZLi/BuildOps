@@ -83,7 +83,6 @@ const SkillListMenu = ({
 }) => {
     const classes = useStyles();
     const [skill, setSkill] = useState('');
-    // const [skillList, setSkillList] = useState(skills ? skills : []);
     const [open, setOpen] = useState(false);
     let name;
 
@@ -116,6 +115,7 @@ const SkillListMenu = ({
                     );
                 }
 
+                // let us know the user has made a change
                 if (setEdited) setEdited(true)
             }
             else {
@@ -200,6 +200,7 @@ const SkillListMenu = ({
                 </Collapse>
             </div>
             <div className={classes.buttonsContainer}>
+                {/* change the icons when user open/close the list */}
                 {open
                     ? (
                         <ExpandLess

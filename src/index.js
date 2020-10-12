@@ -9,10 +9,6 @@ import * as serviceWorker from './serviceWorker';
 import './awsConfig';
 import './App.css';
 
-// npm install aws-amplify @aws-amplify/ui-react
-// The aws-amplify package is the main library for working with Amplify in your apps. 
-// The @aws-amplify/ui-react package includes React specific UI components we’ll use as we build the app.
-
 
 ReactDOM.render(
   <Provider store={store}>

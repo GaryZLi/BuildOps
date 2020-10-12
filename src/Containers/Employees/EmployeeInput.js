@@ -6,7 +6,6 @@ import Typography from '@material-ui/core/Typography';
 import { gql, useMutation } from '@apollo/client';
 
 import SkillListMenu from '../../Components/SkillListMenu';
-import UserInput from '../../Components/UserInput';
 import ActionButton from '../../Components/ActionButton';
 import {
     createEmployee,
@@ -62,7 +61,11 @@ const useStyles = makeStyles({
             top: '0.1em',
         }
     },
-
+    input: {
+        width: '90%',
+        marginTop: 5,
+        marginBottom: 5,
+    },
     addEmployeeButton: {
         backgroundColor: '#1976D2',
         marginTop: 'auto',
@@ -141,14 +144,18 @@ const EmployeeInput = ({
         <Paper className={classes.createEmployeeContainer} elevation={3}>
             <Typography variant='h6' className={classes.header}>
                 Add Employee
-                </Typography>
-            <UserInput
+            </Typography>
+            <input
+                className={classes.input}
                 placeholder='First Name'
-                value='firstname'
+                value={firstname}
+                onChange={e => updateFirstName(e.target.value)}
             />
-            <UserInput
+            <input
+                className={classes.input}
                 placeholder='Last Name'
-                value='lastname'
+                value={lastname}
+                onChange={e => updateLastName(e.target.value)}
             />
             <SkillListMenu/>
             <ActionButton

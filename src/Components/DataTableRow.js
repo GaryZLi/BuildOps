@@ -71,7 +71,7 @@ const DataTableRow = ({
     };
 
     // handle the correct actions
-    // variable: edited --> user has made a change
+    // edited state --> determine if user has made a change
     const handleActionButton = id => {
         // should delete this row,
         if (!edited) {
@@ -113,8 +113,8 @@ const DataTableRow = ({
                     },
                 }
             })
-            .then(res => console.log('res', res))
-            .catch(() => alert('Unable to edit employee!'));
+                .then(res => console.log('res', res))
+                .catch(() => alert('Unable to edit employee!'));
 
             // reset our button
             setEdited(false);
@@ -159,7 +159,6 @@ const DataTableRow = ({
                                 value={value}
                                 onChange={e => handleChange(e.target.value, id, column.id)}
                             />
-                            
                         }
                     </TableCell>
                 );

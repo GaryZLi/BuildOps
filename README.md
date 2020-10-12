@@ -50,3 +50,10 @@ yarn deploy
 ``` 
 
 This will automatically build an optimized production folder and deploy it to S3 bucket.
+
+
+### Environment Variables
+
+API Keys uses process.env
+
+The template can be found at .env.template and used to access the necessary env variables.
